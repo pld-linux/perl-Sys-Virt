@@ -60,7 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS CHANGES INSTALL README
-%dir %{perl_vendorarch}/Sys
 %dir %{perl_vendorarch}/Sys/Virt
 %{perl_vendorarch}/Sys/*.pm
 %{perl_vendorarch}/Sys/Virt/*.pm
