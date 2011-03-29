@@ -6,7 +6,7 @@
 %define		pnam	Virt
 %include	/usr/lib/rpm/macros.perl
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
-#Summary(pl.UTF-8):	
+#Summary(pl.UTF-8):
 Name:		perl-Sys-Virt
 Version:	0.2.6
 Release:	1
@@ -27,13 +27,11 @@ BuildRequires:	perl(XML::XPath::XMLParser)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The Sys::Virt module provides a Perl XS binding to the libvirt
-virtual machine management APIs. This allows machines running
-within arbitrary virtualization containers to be managed with
-a consistent API.
+The Sys::Virt module provides a Perl XS binding to the libvirt virtual
+machine management APIs. This allows machines running within arbitrary
+virtualization containers to be managed with a consistent API.
 
-# %description -l pl.UTF-8
-# TODO
+# %description -l pl.UTF-8 # TODO
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
