@@ -1,29 +1,34 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_with	tests		# perform "make test" (requires libvirtd)
 #
 %define		pdir	Sys
 %define		pnam	Virt
 %include	/usr/lib/rpm/macros.perl
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
-#Summary(pl.UTF-8):
+Summary(pl.UTF-8):	Sys::Virt - reprezentacja i zarządzanie połączeniem z hipernadzorcą libvirt
 Name:		perl-Sys-Virt
-Version:	0.2.6
+Version:	0.9.12
 Release:	1
-License:	GPL
+License:	GPL v2+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	a4ca5735791e132320bd8546c5deacae
+# Source0-md5:	ca6ae250091c9b17354ac3753bb740a2
 URL:		http://search.cpan.org/dist/Sys-Virt/
-BuildRequires:	libvirt-devel
+BuildRequires:	libvirt-devel >= 0.9.12
 BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(Test::Pod)
-BuildRequires:	perl(Test::Pod::Coverage)
-BuildRequires:	perl(XML::XPath)
-BuildRequires:	perl(XML::XPath::XMLParser)
+BuildRequires:	libvirt-daemon >= 0.9.2
+BuildRequires:	perl-CPAN-Changes
+BuildRequires:	perl-Test-Pod
+BuildRequires:	perl-Test-Pod-Coverage
+BuildRequires:	perl-Test-Simple
+BuildRequires:	perl-Time-HiRes
+BuildRequires:	perl-XML-XPath
 %endif
+Requires:	libvirt >= 0.9.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +36,11 @@ The Sys::Virt module provides a Perl XS binding to the libvirt virtual
 machine management APIs. This allows machines running within arbitrary
 virtualization containers to be managed with a consistent API.
 
-# %description -l pl.UTF-8 # TODO
+%description -l pl.UTF-8
+Moduł Sys::Virt dostarcza wiązanie XS Perla do API zarządzania
+maszynami wirtualnymi libvirt. Pozwala na zarządzanie poprzez
+jednolite API maszynami wirtualnymi działającymi w dowolnych
+kontenerach.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -59,12 +68,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CHANGES INSTALL README
+%doc AUTHORS Changes README
+%{perl_vendorarch}/Sys/Virt.pm
 %dir %{perl_vendorarch}/Sys/Virt
-%{perl_vendorarch}/Sys/*.pm
 %{perl_vendorarch}/Sys/Virt/*.pm
 %dir %{perl_vendorarch}/auto/Sys/Virt
-%{perl_vendorarch}/auto/Sys/Virt/*.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/Sys/Virt/*.so
-%{_mandir}/man3/*
+%{perl_vendorarch}/auto/Sys/Virt/Virt.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Sys/Virt/Virt.so
+%{_mandir}/man3/Sys::Virt*.3pm*
 %{_examplesdir}/%{name}-%{version}
