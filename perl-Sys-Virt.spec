@@ -8,19 +8,19 @@
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
 Summary(pl.UTF-8):	Sys::Virt - reprezentacja i zarządzanie połączeniem z hipernadzorcą libvirt
 Name:		perl-Sys-Virt
-Version:	0.9.12
+Version:	0.9.13
 Release:	1
 License:	GPL v2+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ca6ae250091c9b17354ac3753bb740a2
+# Source0-md5:	556508fee52a7f10db8fa147278f88a0
 URL:		http://search.cpan.org/dist/Sys-Virt/
-BuildRequires:	libvirt-devel >= 0.9.12
+BuildRequires:	libvirt-devel >= 0.9.13
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	libvirt-daemon >= 0.9.2
+BuildRequires:	libvirt-daemon >= 0.9.13
 BuildRequires:	perl-CPAN-Changes
 BuildRequires:	perl-Test-Pod
 BuildRequires:	perl-Test-Pod-Coverage
@@ -28,7 +28,7 @@ BuildRequires:	perl-Test-Simple
 BuildRequires:	perl-Time-HiRes
 BuildRequires:	perl-XML-XPath
 %endif
-Requires:	libvirt >= 0.9.12
+Requires:	libvirt >= 0.9.13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
