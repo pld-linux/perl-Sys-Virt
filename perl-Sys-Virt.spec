@@ -73,7 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/Sys/Virt
 %{perl_vendorarch}/Sys/Virt/*.pm
 %dir %{perl_vendorarch}/auto/Sys/Virt
-%{perl_vendorarch}/auto/Sys/Virt/Virt.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Sys/Virt/Virt.so
 %{_mandir}/man3/Sys::Virt*.3pm*
 %{_examplesdir}/%{name}-%{version}
