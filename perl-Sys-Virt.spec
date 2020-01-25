@@ -4,7 +4,6 @@
 #
 %define		pdir	Sys
 %define		pnam	Virt
-%include	/usr/lib/rpm/macros.perl
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
 Summary(pl.UTF-8):	Sys::Virt - reprezentacja i zarządzanie połączeniem z hipernadzorcą libvirt
 Name:		perl-Sys-Virt
