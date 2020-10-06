@@ -15,11 +15,13 @@ Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-v%{version}.t
 # Source0-md5:	08450ac24eca20d8e96fe3f9d644ccb7
 URL:		https://metacpan.org/release/Sys-Virt
 BuildRequires:	libvirt-devel >= 6.3.0
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.16
+BuildRequires:	perl-Module-Build
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
-BuildRequires:	libvirt-daemon >= 1.2.19
+BuildRequires:	libvirt-daemon >= 6.3.0
 BuildRequires:	perl-CPAN-Changes
 BuildRequires:	perl-Test-Pod
 BuildRequires:	perl-Test-Pod-Coverage
