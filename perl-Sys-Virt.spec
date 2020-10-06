@@ -7,15 +7,14 @@
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
 Summary(pl.UTF-8):	Sys::Virt - reprezentacja i zarządzanie połączeniem z hipernadzorcą libvirt
 Name:		perl-Sys-Virt
-Version:	2.5.0
-Release:	6
+Version:	6.3.0
+Release:	1
 License:	GPL v2+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d07fca31367bef924ffe5c62e0d5f18a
-Patch0:		no-dot-in-inc.patch
-URL:		http://search.cpan.org/dist/Sys-Virt/
-BuildRequires:	libvirt-devel >= 1.2.19
+Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-v%{version}.tar.gz
+# Source0-md5:	08450ac24eca20d8e96fe3f9d644ccb7
+URL:		https://metacpan.org/release/Sys-Virt
+BuildRequires:	libvirt-devel >= 6.3.0
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -28,7 +27,7 @@ BuildRequires:	perl-Test-Simple
 BuildRequires:	perl-Time-HiRes
 BuildRequires:	perl-XML-XPath
 %endif
-Requires:	libvirt >= 1.2.19
+Requires:	libvirt >= 6.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,12 +42,12 @@ jednolite API maszynami wirtualnymi działającymi w dowolnych
 kontenerach.
 
 %prep
-%setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
+%setup -q -n %{pdir}-%{pnam}-v%{version}
 
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
+
 %{__make} -j1 \
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
@@ -60,6 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/Sys/Virt/Virt.bs
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
