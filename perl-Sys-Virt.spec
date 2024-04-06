@@ -1,20 +1,20 @@
 #
 # Conditional build:
-%bcond_with	tests		# perform "make test" (requires libvirtd)
+%bcond_with	tests		# functional tests (require libvirtd)
 #
 %define		pdir	Sys
 %define		pnam	Virt
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
 Summary(pl.UTF-8):	Sys::Virt - reprezentacja i zarządzanie połączeniem z hipernadzorcą libvirt
 Name:		perl-Sys-Virt
-Version:	8.8.0
-Release:	2
+Version:	9.8.0
+Release:	1
 License:	GPL v2+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-v%{version}.tar.gz
-# Source0-md5:	0b06e3f33ced8e728159b34804e9ebad
-URL:		https://metacpan.org/release/Sys-Virt
-BuildRequires:	libvirt-devel >= 8.8.0
+# Source0-md5:	828cc480b5cc0abc023b94eae02d509e
+URL:		https://metacpan.org/dist/Sys-Virt
+BuildRequires:	libvirt-devel >= 9.8.0
 BuildRequires:	perl-devel >= 1:5.16
 BuildRequires:	perl-Module-Build
 BuildRequires:	pkgconfig
@@ -29,7 +29,7 @@ BuildRequires:	perl-Test-Simple
 BuildRequires:	perl-Time-HiRes
 BuildRequires:	perl-XML-XPath
 %endif
-Requires:	libvirt >= 6.3.0
+Requires:	libvirt >= 9.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
