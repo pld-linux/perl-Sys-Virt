@@ -7,21 +7,21 @@
 Summary:	Sys::Virt - Represent and manage a libvirt hypervisor connection
 Summary(pl.UTF-8):	Sys::Virt - reprezentacja i zarządzanie połączeniem z hipernadzorcą libvirt
 Name:		perl-Sys-Virt
-Version:	10.2.0
-Release:	2
+Version:	10.6.0
+Release:	1
 License:	GPL v2+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Sys/%{pdir}-%{pnam}-v%{version}.tar.gz
-# Source0-md5:	813624d1cae4964cb94cb432f4d0bf44
+# Source0-md5:	c5240c6eaaee8f83dc74513ae15a8f20
 URL:		https://metacpan.org/dist/Sys-Virt
-BuildRequires:	libvirt-devel >= 10.2.0
+BuildRequires:	libvirt-devel >= 10.6.0
 BuildRequires:	perl-devel >= 1:5.16
 BuildRequires:	perl-Module-Build
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
-BuildRequires:	libvirt-daemon >= 10.2.0
+BuildRequires:	libvirt-daemon >= 10.6.0
 BuildRequires:	perl-CPAN-Changes
 BuildRequires:	perl-Test-Pod
 BuildRequires:	perl-Test-Pod-Coverage
@@ -29,7 +29,7 @@ BuildRequires:	perl-Test-Simple
 BuildRequires:	perl-Time-HiRes
 BuildRequires:	perl-XML-XPath
 %endif
-Requires:	libvirt >= 10.2.0
+Requires:	libvirt >= 10.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
